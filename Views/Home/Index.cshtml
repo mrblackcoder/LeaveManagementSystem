@@ -1,0 +1,18 @@
+﻿@model IndexViewModel
+@{
+    ViewData["Title"] = "Welcome";
+    Layout = "_Layout2";
+}
+
+<div class="text-center">
+    <h1 class="display-4 custom-margin mb-4">@ViewData["Greetings"]</h1>
+    <p class="mb-3">Welcome to the LM System</p>
+
+    <div class="mb-2">
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item">Number of employees: @Model.NumberOfPeople</li>
+        </ul>
+    </div>
+
+    <a class="btn btn-sm btn-outline-primary mt-3" asp-controller="Employees" asp-action="Index">Go to Panel</a>
+</div>

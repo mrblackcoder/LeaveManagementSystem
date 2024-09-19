@@ -1,0 +1,37 @@
+﻿@model LeaveManagementSystemNew.Data.Entities.Employee
+
+@using Microsoft.AspNetCore.Http
+
+@{
+    ViewData["Title"] = "Edit";
+    var userRole = Context.Session.GetInt32("Role") ?? 1;
+}
+
+<h1>Edit</h1>
+
+<h4>Employee</h4>
+<hr />
+
+<form asp-action="Edit">
+    <div class="form-group">
+        <label asp-for="Name" class="control-label"></label>
+        <input asp-for="Name" class="form-control" />
+        <span asp-validation-for="Name" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="RegistrationNumber" class="control-label"></label>
+        <input asp-for="RegistrationNumber" class="form-control" />
+        <span asp-validation-for="RegistrationNumber" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <input type="submit" value="Save" class="btn btn-primary" />
+        <a asp-action="Details" asp-route-id="@Model.Id" class="btn btn-secondary">Cancel</a>
+    </div>
+</form>
+
+@if (userRole == 2)
+{
+    <div class="mt-3">
+        <a asp-action="Index" asp-controller="Employees" class="btn btn-primary">Back to Panel</a>
+    </div>
+}
